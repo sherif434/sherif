@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مساعد الويب السريع</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .pulse-red { animation: pulse 1s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.1); opacity: 0.7; } 100% { transform: scale(1); opacity: 1; } }
+        body { background: radial-gradient(circle, #1a1c2c 0%, #0a0a0a 100%); color: white; overflow: hidden; }
+    </style>
+</head>
+<body class="h-screen flex flex-col items-center justify-center">
+
+    <div class="text-center">
+        <div id="mic-circle" class="w-32 h-32 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_50px_rgba(37,99,235,0.5)] transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+            </svg>
+        </div>
+        <h1 class="text-3xl font-bold mb-2">مساعد الويب الذكي</h1>
+        <p id="status" class="text-blue-400 animate-pulse">اضغط للبدء</p>
+        
+        <div class="mt-10 bg-white/10 p-6 rounded-2xl backdrop-blur-md border border-white/20 w-96">
+            <p class="text-gray-400 text-sm mb-2">ما أسمعه الآن:</p>
+            <p id="live-text" class="text-xl font-medium text-yellow-400 italic">...</p>
+        </div>
+    </div>
+
+    <div class="fixed bottom-10 text-gray-500 text-sm">
+        جرب قول: "افتح فيسبوك" ، "افتح يوتيوب" ، "افتح شات جي بي تي"
+    </div>
+
+    <script>
+        const micCircle = document.getElementById('mic-circle');
+        const statusText = document.getElementById('status');
+        const liveText = document.getElementById('live-text');
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+
+        recognition.lang = 'ar-SA';
+        recognition.continuous = true;
+        recognition.interimResults = true; // معالجة فورية أثناء الكلام
+
+        let isRunning = false;
+
+        micCircle.onclick = () => {
+            if(!isRunning) {
+                recognition.start();
+                isRunning = true;
+                micCircle.classList.add('bg-red-600', 'pulse-red');
+                statusText.innerText = "أنا أسمعك.. اطلب أي موقع";
+            }
+        };
+
+        recognition.onresult = (event) => {
+            let interimTranscript = '';
+            let finalTranscript = '';
+
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    finalTranscript += event.results[i][0].transcript;
+                } else {
+                    interimTranscript += event.results[i][0].transcript;
+                }
+            }
+
+            const speech = (finalTranscript || interimTranscript).toLowerCase();
+            liveText.innerText = speech;
+
+            // تنفيذ الأوامر فور اكتشاف كلمة "افتح"
+            if (speech.includes('افتح') || speech.includes('open')) {
+                handleWebsites(speech);
+            }
+        };
+
+        function handleWebsites(cmd) {
+            const sites = {
+                'فيسبوك': 'https://www.facebook.com',
+                'فيس بوك': 'https://www.facebook.com',
+                'يوتيوب': 'https://www.youtube.com',
+                'تويتر': 'https://www.twitter.com',
+                'انستجرام': 'https://www.instagram.com',
+                'تيك توك': 'https://www.tiktok.com',
+                'جوجل': 'https://www.google.com',
+                'شات': 'https://chatgpt.com',
+                'واتساب': 'https://web.whatsapp.com',
+                'بينج': 'https://www.bing.com',
+                'أمازون': 'https://www.amazon.com'
+            };
+
+            for (let key in sites) {
+                if (cmd.includes(key)) {
+                    window.open(sites[key], '_blank');
+                    liveText.innerText = "جاري فتح " + key;
+                    // تفريغ النص لمنع التكرار
+                    setTimeout(() => { recognition.stop(); recognition.start(); }, 1000);
+                    break;
+                }
+            }
+        }
+
+        recognition.onend = () => {
+            if(isRunning) recognition.start(); // إعادة تشغيل تلقائية للبقاء في الخلفية
+        };
+
+        recognition.onerror = (event) => {
+            console.error("Error: ", event.error);
+        };
+    </script>
+</body>
+</html>

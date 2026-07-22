@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مفتح المواقع الصوتي</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background: #111; color: white; padding-top: 50px; }
+        #btn { width: 200px; height: 200px; border-radius: 50%; border: none; background: #007bff; color: white; font-size: 20px; cursor: pointer; box-shadow: 0 0 20px #007bff; }
+        #btn.active { background: #ff0000; box-shadow: 0 0 20px #ff0000; animation: pulse 1s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        #text { margin-top: 30px; font-size: 24px; color: #00ff00; }
+        .hint { color: #888; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <button id="btn">اضغط لتفعيل المساعد</button>
+    <div id="text">انتظار صوتك...</div>
+    
+    <div class="hint">
+        <p>الأوامر المتاحة: "افتح جوجل"، "افتح يوتيوب"، "افتح فيسبوك"، "افتح واتساب"</p>
+    </div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const textDiv = document.getElementById('text');
+
+        // إعداد محرك الصوت
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        if (!SpeechRecognition) {
+            alert("متصفحك لا يدعم الصوت. استخدم Chrome");
+        } else {
+            const rec = new SpeechRecognition();
+            rec.lang = 'ar-SA';
+            rec.continuous = true;
+            rec.interimResults = false;
+
+            btn.onclick = () => {
+                try {
+                    rec.start();
+                    btn.innerText = "أنا أسمعك...";
+                    btn.classList.add('active');
+                } catch(e) {
+                    console.log("يعمل بالفعل");
+                }
+            };
+
+            rec.onresult = (event) => {
+                const command = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+                textDiv.innerText = "سمعت: " + command;
+                
+                // تنفيذ الأوامر مباشرة
+                if (command.includes("جوجل")) {
+                    window.open("https://www.google.com", "_blank");
+                } 
+                else if (command.includes("يوتيوب")) {
+                    window.open("https://www.youtube.com", "_blank");
+                }
+                else if (command.includes("فيسبوك") || command.includes("فيس")) {
+                    window.open("https://www.facebook.com", "_blank");
+                }
+                else if (command.includes("واتساب") || command.includes("واتس")) {
+                    window.open("https://web.whatsapp.com", "_blank");
+                }
+                else if (command.includes("تيك")) {
+                    window.open("https://www.tiktok.com", "_blank");
+                }
+            };
+
+            rec.onerror = (err) => {
+                console.error(err);
+                if (err.error === 'not-allowed') {
+                    alert("خطأ: الميكروفون محظور. اضغط على علامة القفل بجانب الرابط وفعل الميكروفون.");
+                }
+            };
+
+            // إعادة التشغيل التلقائي لضمان العمل في الخلفية
+            rec.onend = () => {
+                rec.start();
+            };
+        }
+    </script>
+</body>
+</html>

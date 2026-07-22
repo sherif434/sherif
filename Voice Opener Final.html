@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>مساعد الأوامر الصوتية</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #0f172a; color: white; padding-top: 100px; }
+        #btn { 
+            width: 150px; height: 150px; border-radius: 50%; border: none; 
+            background: #3b82f6; color: white; font-weight: bold; cursor: pointer;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); transition: 0.3s;
+        }
+        #btn.listening { background: #ef4444; box-shadow: 0 0 30px rgba(239, 68, 68, 0.8); animation: pulse 1s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        #status { margin-top: 20px; font-size: 1.2rem; color: #94a3b8; }
+        #heard { margin-top: 10px; font-size: 1.5rem; color: #fbbf24; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <button id="btn">اضغط للبدء</button>
+    <div id="status">الحالة: مغلق</div>
+    <div id="heard"></div>
+
+    <script>
+        const btn = document.getElementById('btn');
+        const status = document.getElementById('status');
+        const heard = document.getElementById('heard');
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        if (!SpeechRecognition) {
+            alert("متصفحك لا يدعم هذه الخاصية، يرجى استخدام Chrome");
+        } else {
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'ar-SA';
+            recognition.continuous = true;
+            recognition.interimResults = false;
+
+            btn.onclick = () => {
+                try {
+                    recognition.start();
+                } catch(e) {
+                    console.log("المحرك يعمل بالفعل");
+                }
+            };
+
+            recognition.onstart = () => {
+                btn.classList.add('listening');
+                btn.innerText = "أنا أسمعك";
+                status.innerText = "الحالة: يعمل ويستمع...";
+            };
+
+            recognition.onresult = (event) => {
+                const text = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+                heard.innerText = "سمعت: " + text;
+                
+                // تنفيذ فتح المواقع
+                if (text.includes("جوجل")) window.open("https://www.google.com", "_blank");
+                if (text.includes("يوتيوب")) window.open("https://www.youtube.com", "_blank");
+                if (text.includes("فيس")) window.open("https://www.facebook.com", "_blank");
+                if (text.includes("واتس")) window.open("https://web.whatsapp.com", "_blank");
+                if (text.includes("تيك")) window.open("https://www.tiktok.com", "_blank");
+            };
+
+            recognition.onerror = (event) => {
+                status.innerText = "خطأ: " + event.error;
+                if (event.error === 'not-allowed') {
+                    alert("يرجى الضغط على علامة القفل فوق وتفعيل الميكروفون يدوياً");
+                }
+            };
+
+            recognition.onend = () => {
+                // إعادة التشغيل التلقائي ليبقى يعمل في الخلفية
+                recognition.start();
+            };
+        }
+    </script>
+</body>
+</html>

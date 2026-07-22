@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>المتحكم الصوتي الخارق</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+        body { font-family: 'Cairo', sans-serif; transition: all 0.5s ease; background: #0f172a; color: white; overflow: hidden; }
+        .orb {
+            width: 200px; height: 200px; border-radius: 50%;
+            background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.5);
+            display: flex; items-center; justify-content: center;
+            cursor: pointer; transition: 0.5s; position: relative;
+        }
+        .listening {
+            animation: ripple 1.5s infinite;
+            background: linear-gradient(45deg, #ef4444, #f59e0b);
+            box-shadow: 0 0 80px rgba(239, 68, 68, 0.6);
+        }
+        @keyframes ripple {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 40px rgba(239, 68, 68, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .log-box { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
+</head>
+<body class="h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="text-center mb-10">
+        <h1 class="text-4xl font-extrabold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">مساعد الأوامر الخارق</h1>
+        <p id="status" class="text-gray-400">اضغط على الكرة للبدء</p>
+    </div>
+
+    <div id="main-orb" class="orb mb-10">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+        </svg>
+    </div>
+
+    <div class="log-box w-full max-w-lg rounded-3xl p-6 text-center">
+        <p class="text-sm text-blue-300 mb-2 uppercase tracking-widest">آخر أمر تم رصده</p>
+        <div id="transcript" class="text-2xl font-bold text-white min-h-[40px]">...</div>
+    </div>
+
+    <div class="mt-8 grid grid-cols-2 gap-4 text-xs text-gray-500">
+        <div class="bg-white/5 p-2 rounded-lg">🌐 "افتح يوتيوب، جوجل، فيس، واتس"</div>
+        <div class="bg-white/5 p-2 rounded-lg">🤖 "افتح شات جي بي تي، بينج"</div>
+        <div class="bg-white/5 p-2 rounded-lg">🎨 "وضع ليلي، وضع نهاري"</div>
+        <div class="bg-white/5 p-2 rounded-lg">⚙️ "تحديث الصفحة، إغلاق"</div>
+    </div>
+
+    <script>
+        const orb = document.getElementById('main-orb');
+        const status = document.getElementById('status');
+        const transcriptDiv = document.getElementById('transcript');
+
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        if (!SpeechRecognition) {
+            alert("متصفحك قديم! استخدم Chrome للكمبيوتر.");
+        } else {
+            const recognition = new SpeechRecognition();
+            recognition.lang = 'ar-SA';
+            recognition.continuous = true;
+            recognition.interimResults = false;
+
+            let active = false;
+
+            orb.onclick = () => {
+                if(!active) {
+                    recognition.start();
+                    active = true;
+                }
+            };
+
+            recognition.onstart = () => {
+                orb.classList.add('listening');
+                status.innerText = "النظام نشط.. أنا أسمعك الآن";
+                status.classList.add('text-red-400');
+            };
+
+            recognition.onresult = (event) => {
+                const cmd = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+                transcriptDiv.innerText = cmd;
+                executeSuperCommand(cmd);
+            };
+
+            function executeSuperCommand(cmd) {
+                // قاموس المواقع الذكي
+                const sites = {
+                    "يوتيوب": "https://www.youtube.com",
+                    "جوجل": "https://www.google.com",
+                    "فيس": "https://www.facebook.com",
+                    "واتس": "https://web.whatsapp.com",
+                    "تيك": "https://www.tiktok.com",
+                    "انستجرام": "https://www.instagram.com",
+                    "تويتر": "https://www.twitter.com",
+                    "شات": "https://chatgpt.com",
+                    "بينج": "https://www.bing.com",
+                    "تليجرام": "https://web.telegram.org",
+                    "أمازون": "https://www.amazon.com",
+                    "ترجمة": "https://translate.google.com"
+                };
+
+                // البحث عن فتح المواقع
+                for (let key in sites) {
+                    if (cmd.includes(key)) {
+                        window.open(sites[key], '_blank');
+                        return;
+                    }
+                }
+
+                // أوامر النظام
+                if (cmd.includes("تحديث") || cmd.includes("ريفرش")) {
+                    location.reload();
+                }
+                if (cmd.includes("ليلي") || cmd.includes("اسود") || cmd.includes("أسود")) {
+                    document.body.style.background = "#000";
+                }
+                if (cmd.includes("نهاري") || cmd.includes("ابيض") || cmd.includes("أبيض")) {
+                    document.body.style.background = "#f8fafc";
+                    document.body.style.color = "#000";
+                }
+                if (cmd.includes("تنبيه")) {
+                    alert("نعم، أنا أسمعك بوضوح!");
+                }
+            }
+
+            recognition.onend = () => {
+                // إعادة تشغيل تلقائية فورية لضمان عدم التوقف
+                if (active) recognition.start();
+            };
+
+            recognition.onerror = (e) => {
+                console.error("Error:", e.error);
+                if (e.error === 'not-allowed') {
+                    status.innerText = "الميكروفون محظور! فعليه من القفل فوق";
+                }
+            };
+        }
+    </script>
+</body>
+</html>
