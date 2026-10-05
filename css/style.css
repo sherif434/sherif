@@ -22,9 +22,9 @@ section{padding:85px 0}.section-title{text-align:center;margin-bottom:45px}.sect
 .about{background:#f5eff1}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
 .about-box{background:#fff;border-radius:25px;min-height:390px;padding:35px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 15px 40px rgba(0,0,0,.05)}
 .about-box h2{font-size:36px;margin-bottom:18px}.about-box p{color:#666;margin-bottom:20px}.features{display:grid;gap:12px}.feature{background:#fff;padding:14px 17px;border-radius:12px;border:1px solid #eee}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.gallery-item{height:250px;border-radius:18px;overflow:hidden;position:relative;background:linear-gradient(135deg,#d9c0aa,#5b4a48)}
-.gallery-item:nth-child(2){background:linear-gradient(135deg,#7a5a5a,#d5b48e)}.gallery-item:nth-child(3){background:linear-gradient(135deg,#332a2e,#bd936d)}.gallery-item:nth-child(4){background:linear-gradient(135deg,#d8c3c4,#6d5150)}.gallery-item:nth-child(5){background:linear-gradient(135deg,#b98d74,#292329)}.gallery-item:nth-child(6){background:linear-gradient(135deg,#504045,#d8b28d)}
-.gallery-label{position:absolute;right:15px;bottom:15px;background:rgba(0,0,0,.65);color:#fff;padding:7px 12px;border-radius:20px;font-size:13px}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.gallery-item{height:250px;border-radius:18px;overflow:hidden;position:relative;background:#ddd;margin:0;box-shadow:0 12px 30px rgba(0,0,0,.08)}
+.gallery-item img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .45s ease}.gallery-item:hover img{transform:scale(1.05)}
+.gallery-label{position:absolute;right:15px;bottom:15px;background:rgba(0,0,0,.68);color:#fff;padding:7px 12px;border-radius:20px;font-size:13px;z-index:2}
 .booking{background:#17151a;color:#fff}.booking .section-title h2{color:#fff}.booking .section-title p{color:#bbb}
 .booking-form{max-width:700px;margin:auto;background:#211e24;padding:30px;border-radius:24px;border:1px solid rgba(255,255,255,.08)}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.form-group{margin-bottom:15px}.form-group.full{grid-column:1/-1}
