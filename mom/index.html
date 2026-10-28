@@ -30,6 +30,20 @@ section.content{padding:84px 20px}.wrap{width:min(1020px,100%);margin:auto}.sect
 @keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.14)}24%{transform:scale(1)}36%{transform:scale(1.09)}}
 @keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 @keyframes floatUp{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
+
+/* إضافات بسيطة برسائل أكثر دفئًا */
+.promise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px}
+.promise{background:#fff;border:1px solid #f0dfe2;border-radius:22px;padding:23px;box-shadow:0 10px 30px #8d53600a}
+.promise h3{margin:0 0 8px;color:#a75d76;font-size:1.08rem}
+.promise p{margin:0;color:var(--muted);line-height:1.9}
+.memory-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.memory{border-radius:22px;padding:22px;background:linear-gradient(145deg,#fff,#fff2f4);border:1px solid #f0d9df}
+.memory .emoji{font-size:1.8rem}
+.memory h3{margin:10px 0 7px;font-size:1.05rem}
+.memory p{margin:0;color:var(--muted);line-height:1.85;font-size:.94rem}
+.love-note{margin:28px auto 0;max-width:760px;text-align:center;background:#fff;border:1px dashed #dfb2bf;border-radius:22px;padding:25px;color:#81586a;line-height:2;font-size:1.05rem}
+@media(max-width:760px){.promise-grid,.memory-list{grid-template-columns:1fr}.promise,.memory{padding:21px}}
+
 @media(max-width:760px){.cards{grid-template-columns:1fr}.card{padding:23px}.hero{min-height:94svh}.content{padding:64px 17px!important}.letter{border-radius:22px}.scroll-note{bottom:12px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
@@ -72,6 +86,43 @@ section.content{padding:84px 20px}.wrap{width:min(1020px,100%);margin:auto}.sect
 </div>
 </div>
 </section>
+
+<section class="content">
+<div class="wrap">
+<div class="section-head"><span class="kicker">أمنيات من قلبي</span><h2>نفسي أشوفك دايمًا مبسوطة</h2><p>أجمل حاجة عندي إني أشوف ابتسامتك وراحة بالك، ودي شوية أمنيات بدعي ربنا يحققها ليكي.</p></div>
+<div class="memory-list">
+<article class="memory"><div class="emoji">🌸</div><h3>صحة وراحة بال</h3><p>ربنا يديكي الصحة والعافية، ويبعد عنك كل تعب وقلق، ويجعل قلبك مطمئن دايمًا.</p></article>
+<article class="memory"><div class="emoji">☀️</div><h3>أيام مليانة فرحة</h3><p>كل صباح يبدأ بابتسامة، وكل يوم يعدّي عليكي وفيه خبر حلو وحاجة تفرّح قلبك.</p></article>
+<article class="memory"><div class="emoji">🕊️</div><h3>بال مرتاح وقلب هادي</h3><p>ربنا يبدّل أي تعب راحة، وأي قلق طمأنينة، ويعوّض قلبك بكل خير.</p></article>
+<article class="memory"><div class="emoji">🌷</div><h3>تحققي اللي بتتمنيه</h3><p>نفسي أشوف كل أمنية جميلة جواكي بتتحقق، وأكون جنبك أشاركك فرحتك.</p></article>
+<article class="memory"><div class="emoji">🏡</div><h3>دفا البيت</h3><p>يفضل بيتنا مليان بوجودك وصوتك وضحكتك، وتفضلي دايمًا مصدر الحنان واللمة.</p></article>
+<article class="memory"><div class="emoji">🤍</div><h3>حب من غير مناسبة</h3><p>تفضلي حاسة إنك محبوبة ومقدّرة، مش في يوم واحد بس، لكن في كل يوم من أيام عمرك.</p></article>
+</div>
+</div>
+</section>
+<section class="content letter-section">
+<div class="wrap">
+<div class="section-head"><span class="kicker">وعد من ابنك</span><h2>هحاول أفرّح قلبك كل يوم</h2><p>مش وعود كبيرة في الكلام، لكن حاجات بسيطة أتمنى أقدر أعملها وأثبتها بالأفعال.</p></div>
+<div class="promise-grid">
+<article class="promise"><h3>💗 أسمعك وأهتم بيكي</h3><p>أديكي من وقتي واهتمامي، وأفتكر إن سؤالي عليكي وكلامي معاكي ممكن يفرقوا في يومك.</p></article>
+<article class="promise"><h3>🌼 أقدّر تعبك</h3><p>ما اعتبرش حبك وتعبك حاجة عادية، وأفتكر دايمًا إن ورا كل حاجة حلوة قدمتيها ليا قلب بيحبني.</p></article>
+<article class="promise"><h3>✨ أشاركك فرحتي</h3><p>أحكيلك عن الحاجات الحلوة، وأحاول أخليكي جزء من نجاحاتي ولحظاتي الجميلة.</p></article>
+<article class="promise"><h3>🤲 أدعيلك من قلبي</h3><p>أفضل أدعي ربنا يحفظك ويكرمك ويجزيكي عني كل خير، ويقدرني أرد ولو جزء بسيط من جميلك.</p></article>
+</div>
+<div class="love-note">يا أمي، مش لازم تكوني مثالية ولا تعملي أي حاجة زيادة عشان أحبك… أنا بحبك لأنك أمي، ولأن ليكي في قلبي مكانة محدش يقدر ياخدها. 🤍</div>
+</div>
+</section>
+<section class="content">
+<div class="wrap">
+<div class="section-head"><span class="kicker">كلمات صغيرة ومعناها كبير</span><h2>حاجات عايزك تفتكريها دايمًا</h2></div>
+<div class="cards">
+<article class="card"><div class="emoji">💌</div><h3>إنتِ غالية جدًا</h3><p>حتى لو ما قلتهاش كل يوم، مكانتك عندي أكبر من أي رسالة أو كلام.</p></article>
+<article class="card"><div class="emoji">🌹</div><h3>شكرًا على كل حاجة</h3><p>شكرًا على دعواتك، واهتمامك، وصبرك، وعلى كل مرة كنتِ فيها سند ليا.</p></article>
+<article class="card"><div class="emoji">❤️</div><h3>أنا بحبك زي ما إنتِ</h3><p>بحب وجودك وقلبك وطيبتك، وبفرح إن ربنا اختار لي أم زيك.</p></article>
+</div>
+</div>
+</section>
+
 <section class="content">
 <div class="wrap"><div class="quote">«ربنا يخليكي ليا يا أمي،<br>ويخلّيني دايمًا سبب لفرحتك»</div><div class="section-head"><p>مش لازم يكون فيه مناسبة عشان أقولك بحبك… إنتِ تستاهلي الحب والتقدير كل يوم.</p><a href="#top" class="btn secondary">↑ ارجعي لأول الرسالة</a></div></div>
 </section>
