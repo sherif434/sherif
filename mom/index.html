@@ -1,138 +1,83 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#fff7f2">
-<meta name="description" content="رسالة حب وامتنان لأجمل أم في الدنيا.">
-<title>إلى أمي، حُبّي الأول 🤍</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&display=swap');
-:root{--ink:#492d3a;--muted:#806875;--rose:#c86d87;--rose2:#e9a8b8;--cream:#fff8f3;--gold:#c99b61}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'Cairo',sans-serif;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.25;background-image:radial-gradient(#d8a0ae .7px,transparent .7px);background-size:22px 22px;z-index:-1}
-a{color:inherit}.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:70px 22px 60px;position:relative;isolation:isolate;background:radial-gradient(ellipse at 50% 28%,#fff 0,#fff6f3 42%,#fbe8e9 100%);overflow:hidden}
-.orb{position:absolute;border-radius:50%;filter:blur(2px);z-index:-1;opacity:.55}.orb.one{width:260px;height:260px;top:-75px;right:-75px;background:#f3cbd3}.orb.two{width:320px;height:320px;bottom:-130px;left:-100px;background:#f5d9c5}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid #e8c5ce;border-radius:999px;padding:8px 17px;color:#9d5c72;background:#ffffff9c;font-size:.9rem}
-.heart-mark{font-size:2.5rem;margin:25px auto 8px;display:block;filter:drop-shadow(0 8px 12px #d88aa355);animation:beat 1.7s infinite}
-h1{font-family:'Amiri',serif;font-size:clamp(3rem,9vw,6.3rem);line-height:1.18;margin:0 auto 14px;font-weight:700;letter-spacing:-1px}
-h1 span{display:block;color:var(--rose)}
-.hero p{font-size:clamp(1rem,2.6vw,1.2rem);line-height:2;max-width:650px;color:var(--muted);margin:0 auto 27px}
-.actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}.btn{border:0;border-radius:999px;padding:13px 23px;font:700 1rem 'Cairo',sans-serif;text-decoration:none;cursor:pointer;transition:.25s;display:inline-flex;align-items:center;justify-content:center;gap:8px}.primary{background:linear-gradient(135deg,#c96f88,#a94f70);color:white;box-shadow:0 10px 24px #bd6c8638}.secondary{background:#fff;border:1px solid #ead0d6;color:#8c5368}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px #bd6c8630}
-.scroll-note{position:absolute;bottom:19px;color:#a7828d;font-size:.8rem}
-section.content{padding:84px 20px}.wrap{width:min(1020px,100%);margin:auto}.section-head{text-align:center;margin-bottom:36px}.kicker{color:var(--rose);font-weight:800;font-size:.9rem;letter-spacing:.4px}.section-head h2{font-family:'Amiri',serif;font-size:clamp(2.1rem,5vw,3.4rem);margin:8px 0;color:#573746}.section-head p{color:var(--muted);line-height:1.9;margin:0 auto;max-width:650px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.card{background:#fff;border:1px solid #f0dfe2;border-radius:24px;padding:27px 23px;box-shadow:0 12px 36px #8d53600b;transition:transform .25s}.card:hover{transform:translateY(-5px)}.card .emoji{font-size:1.8rem}.card h3{margin:12px 0 8px;font-size:1.12rem}.card p{margin:0;color:var(--muted);line-height:1.9;font-size:.95rem}
-.letter-section{background:linear-gradient(150deg,#f8e8e9,#fff8f3 70%)}.letter{max-width:800px;margin:auto;background:#fffdfb;border:1px solid #efd9dc;border-radius:28px;padding:clamp(24px,5vw,52px);box-shadow:0 22px 60px #86505b13;position:relative}.letter:before{content:'❝';position:absolute;top:7px;left:24px;font:5rem Georgia;color:#f2d8dd}.letter h2{font:700 clamp(2rem,5vw,3.2rem) 'Amiri',serif;text-align:center;margin:0 0 20px}.letter p{font-size:1.06rem;line-height:2.25;color:#6d5260;margin:0 0 14px}.signature{text-align:left!important;font:700 1.6rem 'Amiri',serif!important;color:var(--rose)!important;margin-top:23px!important}
-.hidden-letter{display:none}.hidden-letter.show{display:block;animation:fade .8s ease}.reveal-wrap{text-align:center;margin-top:24px}
-.quote{text-align:center;font:700 clamp(1.6rem,4vw,2.5rem) 'Amiri',serif;color:#9d5a72;line-height:1.8;padding:20px}
-.footer{text-align:center;padding:34px 18px 42px;color:#967985;font-size:.9rem}.footer .tiny{font-size:1.4rem;margin-bottom:7px}
-.float-heart{position:fixed;bottom:-40px;pointer-events:none;z-index:5;animation:floatUp 4s ease-in forwards}
-@keyframes beat{0%,100%{transform:scale(1)}12%{transform:scale(1.14)}24%{transform:scale(1)}36%{transform:scale(1.09)}}
-@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-@keyframes floatUp{to{transform:translateY(-110vh) rotate(25deg);opacity:0}}
-
-/* إضافات بسيطة برسائل أكثر دفئًا */
-.promise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:24px}
-.promise{background:#fff;border:1px solid #f0dfe2;border-radius:22px;padding:23px;box-shadow:0 10px 30px #8d53600a}
-.promise h3{margin:0 0 8px;color:#a75d76;font-size:1.08rem}
-.promise p{margin:0;color:var(--muted);line-height:1.9}
-.memory-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
-.memory{border-radius:22px;padding:22px;background:linear-gradient(145deg,#fff,#fff2f4);border:1px solid #f0d9df}
-.memory .emoji{font-size:1.8rem}
-.memory h3{margin:10px 0 7px;font-size:1.05rem}
-.memory p{margin:0;color:var(--muted);line-height:1.85;font-size:.94rem}
-.love-note{margin:28px auto 0;max-width:760px;text-align:center;background:#fff;border:1px dashed #dfb2bf;border-radius:22px;padding:25px;color:#81586a;line-height:2;font-size:1.05rem}
-@media(max-width:760px){.promise-grid,.memory-list{grid-template-columns:1fr}.promise,.memory{padding:21px}}
-
-@media(max-width:760px){.cards{grid-template-columns:1fr}.card{padding:23px}.hero{min-height:94svh}.content{padding:64px 17px!important}.letter{border-radius:22px}.scroll-note{bottom:12px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
-</style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff7f4">
+<meta name="description" content="رسالة حب وامتنان لأغلى أم في الدنيا.">
+<title>إلى أمي الحبيبة | بكل الحب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="top-glow"></div>
+<header class="site-header">
+<a class="brand" href="#home"><span class="brand-heart">♥</span><span>إلى أمي</span></a>
+<nav aria-label="القائمة"><a href="#letter">رسالتي</a><a href="#thankyou">شكرًا لكِ</a><a href="#promises">وعودي</a><a href="#prayer">دعائي</a></nav>
+<a class="header-cta" href="#letter">من قلبي إليكِ <span>♡</span></a>
+</header>
 <main>
-<section class="hero" id="top">
-<div class="orb one"></div><div class="orb two"></div>
-<div>
-<div class="eyebrow">✧ رسالة صغيرة لحبّ كبير ✧</div>
-<span class="heart-mark" aria-hidden="true">🤍</span>
-<h1>إلى أمي… <span>حُبّي الأول</span></h1>
-<p>في كلام كتير جوا قلبي، يمكن ما بعرفش أقوله كل يوم… بس النهارده حبيت أقول لكِ إنك أجمل نعمة في حياتي، وإن وجودك لوحده بيخلّي الدنيا أحنّ وأجمل.</p>
-<div class="actions"><a class="btn primary" href="#letter">💌 افتحي رسالتي ليكي</a><button class="btn secondary" id="hearts" type="button">♡ ابعتي قلوب للسماء</button></div>
+<section class="hero section-wrap" id="home">
+<div class="hero-copy">
+<div class="eyebrow"><span></span> إلى أغلى إنسانة في حياتي <span></span></div>
+<h1>أمي… أنتِ <em>الحب</em><br>الذي لا يشبهه حبّ 🤍</h1>
+<p class="hero-lead">في كلام كتير جوايا يمكن ما بعرفش أقوله كل يوم، فعملت لكِ المكان الصغير ده علشان أقول لكِ: وجودك في حياتي نعمة، وحبك أمان عمري كله.</p>
+<div class="hero-actions"><a class="button button-primary" href="#letter">اقرئي رسالتي <span>↓</span></a><button class="button button-soft" id="heartButton" type="button">ابعتي لقلبك حبًّا <span>♡</span></button></div>
+<div class="tiny-note"><span class="tiny-heart">♥</span> صفحة معمولة مخصوص علشانك، يا أمي.</div>
 </div>
-<div class="scroll-note">اتفضّلي كمّلي… دي رسالة من القلب ↓</div>
+<div class="hero-art" aria-label="قلب يرمز لحب الأم">
+<div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="flower flower-a">✿</div><div class="flower flower-b">✿</div><div class="flower flower-c">✾</div>
+<div class="heart-frame"><div class="big-heart">♥</div><span class="heart-spark spark-one">✦</span><span class="heart-spark spark-two">✧</span></div>
+<div class="art-caption"><span>أنتِ الحكاية الأجمل</span><small>وأحنّ قلب عرفته</small></div>
+</div>
+<a class="scroll-cue" href="#letter"><span></span> كمّلي الحكاية</a>
 </section>
-<section class="content">
-<div class="wrap">
-<div class="section-head"><span class="kicker">حاجات يمكن ما بقولهاش كفاية</span><h2>ليه إنتِ غالية عندي؟</h2><p>لأن حب الأم مش مجرد كلمة… ده أمان وحنان ودعوة حلوة بترافقنا حتى وإحنا بعيد.</p></div>
-<div class="cards">
-<article class="card"><div class="emoji">🌷</div><h3>حنانك ملوش بديل</h3><p>حضنك وأمانك وكلمة منك في وقت صعب يقدروا يخلّوا كل حاجة أهون.</p></article>
-<article class="card"><div class="emoji">✨</div><h3>إنتِ بركتي في حياتي</h3><p>كل تعب تعبتيه عشاني، وكل مرة وقفتي جنبي، ليهم مكان كبير جوا قلبي.</p></article>
-<article class="card"><div class="emoji">🤲</div><h3>دعائي ليكي دايمًا</h3><p>ربنا يحفظك ويطوّل في عمرك على خير، ويديكي الصحة وراحة البال وفرحة تليق بقلبك.</p></article>
-</div>
-</div>
+
+<section class="letter-section section-wrap" id="letter">
+<div class="section-heading"><span class="section-kicker">كلمات من القلب</span><h2>رسالتي ليكِ يا أمي</h2><p>كلام بسيط، لكنه شايل حبًّا أكبر من أي كلام.</p></div>
+<article class="letter-card">
+<div class="letter-top"><span>إلى أمي الغالية</span><span class="letter-decoration">❧</span></div>
+<p>أمي الحبيبة،</p>
+<p>يمكن أوقات كتير ما بعرفش أعبّر لكِ عن اللي جوايا، ويمكن أنسى أقول لكِ قد إيه وجودك بيفرق في كل تفصيلة في حياتي. لكن الحقيقة اللي عمري ما هتتغير هي إنك من أغلى النعم اللي ربنا رزقني بيها.</p>
+<p>شكرًا على كل مرة خفتي عليّا فيها، وعلى كل دعوة قلتيها من قلبك، وعلى كل تعب استحملتيه علشاني، وعلى حنانك اللي بيخلّي الدنيا أهون مهما كانت صعبة. شكرًا لأنك كنتِ وما زلتِ حضن الأمان، والصوت اللي يطمنّي، والقلب اللي يتمنّى لي الخير من غير مقابل.</p>
+<p>أنا مش محتاج مناسبة علشان أحبك، ولا يوم واحد يكفي علشان أوفيكِ حقك. كل يوم فيه وجودك هو سبب للحمد، وكل لحظة حلوة في حياتي أتمنى تكوني أول واحدة أشاركها بيها.</p>
+<p>نفسي دايمًا أشوفك مرتاحة ومبسوطة، ونفسي أكون سبب في ابتسامتك زي ما كنتِ سبب في طمأنينتي مرات كتير. ولو الكلمات ما قدرتش توصف مكانتك، فخليكي عارفة إن ليكِ في قلبي مكان محدش يقدر ياخده.</p>
+<p class="letter-sign">بحبك حبًّا أكبر من الكلام، يا أمي. <span>♥</span></p>
+</article>
 </section>
-<section class="content letter-section" id="letter">
-<div class="wrap">
-<div class="letter">
-<h2>حبيبتي يا أمي ❤️</h2>
-<p>يمكن مهما كبرت، هفضل محتاج دعواتك وحنانك ونظرة الرضا في عينيكي. إنتِ مش بس أمي؛ إنتِ البيت اللي قلبي بيرتاح فيه، والصوت اللي بيطمنّي، والإنسانة اللي حبها عمره ما كان له مقابل.</p>
-<p>أنا عارف إن كلمة «بحبك» صغيرة قدّام كل اللي عملتيه عشاني، وقدّام كل لحظة تعب أو خوف أو دعوة حلوة خبّيتيها في قلبك. بس أتمنى أقدر كل يوم أفرّحك، وأكون سبب في ابتسامتك، وأعوّضك ولو بجزء بسيط عن كل حب اديتيهولي.</p>
-<div class="hidden-letter" id="extra">
-<p>لو الدنيا كلها اتغيّرت، هيفضل ليكي مكانك اللي محدش يقدر ياخده. ولو نسيت أقولها وسط زحمة الأيام، افتكري دايمًا إنك غالية عندي فوق ما الكلام يقدر يوصف، وإن وجودك في حياتي نعمة بحمد ربنا عليها.</p>
-<p>ربنا ما يحرمنيش منك، ويجعل أيامك كلها نور ورضا وراحة، ويقدرني أكون ابن يفرّح قلبك وتبقي فخورة بيه. بحبك يا أمي… النهارده وبكرة وكل يوم. ❤️</p>
-<p class="signature">ابنك اللي بيحبك من كل قلبه 🤍</p>
-</div>
-<div class="reveal-wrap"><button class="btn primary" id="reveal" type="button">كمّلي يا أمي… فيه كلام كمان 💗</button></div>
-</div>
+
+<section class="gratitude-section" id="thankyou"><div class="section-wrap">
+<div class="section-heading"><span class="section-kicker">حاجات مش هنساها</span><h2>شكرًا لأنك أنتِ</h2><p>في تفاصيل صغيرة بتعمل فرق كبير، ووجودك أجمل تفصيلة في عمري.</p></div>
+<div class="gratitude-grid">
+<article class="gratitude-card"><span class="card-icon">☁</span><h3>شكرًا على الأمان</h3><p>لأن وجودك بيخليني أحس إن مهما الدنيا اتغيّرت، لسه فيه قلب بيدعي لي وبيتمنّى لي الخير.</p></article>
+<article class="gratitude-card"><span class="card-icon">✿</span><h3>شكرًا على الحنان</h3><p>على اهتمامك بالتفاصيل، وعلى طيبتك، وعلى كل لحظة حسّستيني فيها إني محبوب ومهم.</p></article>
+<article class="gratitude-card"><span class="card-icon">☀</span><h3>شكرًا على التشجيع</h3><p>على كل كلمة رفعت معنوياتي، وعلى صبرك، وعلى إيمانك بيا حتى وأنا لسه بتعلّم.</p></article>
+<article class="gratitude-card"><span class="card-icon">♡</span><h3>شكرًا على الحب</h3><p>حبّك اللي مش محتاج شروط، واللي بيعلّمني كل يوم معنى الرحمة والعطاء الحقيقي.</p></article>
+</div></div></section>
+
+<section class="promise-section section-wrap" id="promises">
+<div class="promise-intro"><span class="section-kicker">من ابنك بكل الحب</span><h2>وعود صغيرة<br>من قلبي ليكِ</h2><p>مش هقول إني هكون مثالي، لكن هحاول كل يوم أكون أحسن، وأخلي حبي ليكِ يظهر في أفعالي قبل كلامي.</p><div class="promise-flower">❀</div></div>
+<div class="promise-list">
+<div class="promise-item"><span>01</span><div><h3>هحاول أفرّح قلبك</h3><p>وأفتكر إن كلمة حلوة واهتمام بسيط ممكن يغيّروا يوم كامل.</p></div><b>♡</b></div>
+<div class="promise-item"><span>02</span><div><h3>هقدّر تعبك وتضحياتك</h3><p>ومش هعتبر حبك أو مجهودك حاجة عادية أو مضمونة.</p></div><b>♡</b></div>
+<div class="promise-item"><span>03</span><div><h3>هسمعك وأهتم بيكِ</h3><p>لأن مشاعرك وراحتك مهمين، زي ما كنتِ دايمًا مهتمة بيا.</p></div><b>♡</b></div>
+<div class="promise-item"><span>04</span><div><h3>هفضل أدعيلك بالخير</h3><p>وأتمنى من ربنا يديكِ صحة وراحة بال وأيام مليانة فرحة.</p></div><b>♡</b></div>
 </div>
 </section>
 
-<section class="content">
-<div class="wrap">
-<div class="section-head"><span class="kicker">أمنيات من قلبي</span><h2>نفسي أشوفك دايمًا مبسوطة</h2><p>أجمل حاجة عندي إني أشوف ابتسامتك وراحة بالك، ودي شوية أمنيات بدعي ربنا يحققها ليكي.</p></div>
-<div class="memory-list">
-<article class="memory"><div class="emoji">🌸</div><h3>صحة وراحة بال</h3><p>ربنا يديكي الصحة والعافية، ويبعد عنك كل تعب وقلق، ويجعل قلبك مطمئن دايمًا.</p></article>
-<article class="memory"><div class="emoji">☀️</div><h3>أيام مليانة فرحة</h3><p>كل صباح يبدأ بابتسامة، وكل يوم يعدّي عليكي وفيه خبر حلو وحاجة تفرّح قلبك.</p></article>
-<article class="memory"><div class="emoji">🕊️</div><h3>بال مرتاح وقلب هادي</h3><p>ربنا يبدّل أي تعب راحة، وأي قلق طمأنينة، ويعوّض قلبك بكل خير.</p></article>
-<article class="memory"><div class="emoji">🌷</div><h3>تحققي اللي بتتمنيه</h3><p>نفسي أشوف كل أمنية جميلة جواكي بتتحقق، وأكون جنبك أشاركك فرحتك.</p></article>
-<article class="memory"><div class="emoji">🏡</div><h3>دفا البيت</h3><p>يفضل بيتنا مليان بوجودك وصوتك وضحكتك، وتفضلي دايمًا مصدر الحنان واللمة.</p></article>
-<article class="memory"><div class="emoji">🤍</div><h3>حب من غير مناسبة</h3><p>تفضلي حاسة إنك محبوبة ومقدّرة، مش في يوم واحد بس، لكن في كل يوم من أيام عمرك.</p></article>
-</div>
-</div>
-</section>
-<section class="content letter-section">
-<div class="wrap">
-<div class="section-head"><span class="kicker">وعد من ابنك</span><h2>هحاول أفرّح قلبك كل يوم</h2><p>مش وعود كبيرة في الكلام، لكن حاجات بسيطة أتمنى أقدر أعملها وأثبتها بالأفعال.</p></div>
-<div class="promise-grid">
-<article class="promise"><h3>💗 أسمعك وأهتم بيكي</h3><p>أديكي من وقتي واهتمامي، وأفتكر إن سؤالي عليكي وكلامي معاكي ممكن يفرقوا في يومك.</p></article>
-<article class="promise"><h3>🌼 أقدّر تعبك</h3><p>ما اعتبرش حبك وتعبك حاجة عادية، وأفتكر دايمًا إن ورا كل حاجة حلوة قدمتيها ليا قلب بيحبني.</p></article>
-<article class="promise"><h3>✨ أشاركك فرحتي</h3><p>أحكيلك عن الحاجات الحلوة، وأحاول أخليكي جزء من نجاحاتي ولحظاتي الجميلة.</p></article>
-<article class="promise"><h3>🤲 أدعيلك من قلبي</h3><p>أفضل أدعي ربنا يحفظك ويكرمك ويجزيكي عني كل خير، ويقدرني أرد ولو جزء بسيط من جميلك.</p></article>
-</div>
-<div class="love-note">يا أمي، مش لازم تكوني مثالية ولا تعملي أي حاجة زيادة عشان أحبك… أنا بحبك لأنك أمي، ولأن ليكي في قلبي مكانة محدش يقدر ياخدها. 🤍</div>
-</div>
-</section>
-<section class="content">
-<div class="wrap">
-<div class="section-head"><span class="kicker">كلمات صغيرة ومعناها كبير</span><h2>حاجات عايزك تفتكريها دايمًا</h2></div>
-<div class="cards">
-<article class="card"><div class="emoji">💌</div><h3>إنتِ غالية جدًا</h3><p>حتى لو ما قلتهاش كل يوم، مكانتك عندي أكبر من أي رسالة أو كلام.</p></article>
-<article class="card"><div class="emoji">🌹</div><h3>شكرًا على كل حاجة</h3><p>شكرًا على دعواتك، واهتمامك، وصبرك، وعلى كل مرة كنتِ فيها سند ليا.</p></article>
-<article class="card"><div class="emoji">❤️</div><h3>أنا بحبك زي ما إنتِ</h3><p>بحب وجودك وقلبك وطيبتك، وبفرح إن ربنا اختار لي أم زيك.</p></article>
-</div>
-</div>
-</section>
+<section class="quote-section"><div class="quote-mark">“</div><p>مش كل النعم بنعرف نوصفها…<br>بعض النعم اسمها <span>أمي</span>.</p><small>كلمة من القلب، ليكِ وحدكِ</small><div class="quote-hearts">♥　♡　♥</div></section>
 
-<section class="content">
-<div class="wrap"><div class="quote">«ربنا يخليكي ليا يا أمي،<br>ويخلّيني دايمًا سبب لفرحتك»</div><div class="section-head"><p>مش لازم يكون فيه مناسبة عشان أقولك بحبك… إنتِ تستاهلي الحب والتقدير كل يوم.</p><a href="#top" class="btn secondary">↑ ارجعي لأول الرسالة</a></div></div>
-</section>
+<section class="prayer-section section-wrap" id="prayer">
+<div class="prayer-card"><div class="prayer-icon">☾</div><span class="section-kicker">دعوة من قلبي</span><h2>اللهم احفظ أمي</h2>
+<p>اللهم احفظ أمي بعينك التي لا تنام، وارزقها الصحة والعافية وراحة البال، وأسعد قلبها كما أسعدت قلبي، وأبعد عنها كل حزن وتعب، واكتب لها من الخير أكثر مما تتمنى، واجعل أيامها مليئة بالرضا والطمأنينة والبركة.</p>
+<div class="prayer-divider"><span>✧</span> آمين يا رب العالمين <span>✧</span></div>
+<button class="button button-primary" id="prayerButton" type="button">دعوة أخرى من القلب ♡</button>
+<p class="extra-prayer" id="extraPrayer" hidden>ربِّ ارحم أمي كما رعتني صغيرًا، وبارك في عمرها وصحتها، واجعلني دائمًا سببًا في فرحتها وراحة قلبها.</p>
+</div></section>
+
+<section class="closing-section"><div class="closing-heart">♥</div><h2>لو رجع بيا الزمن ألف مرة،<br>هتمنى في كل مرة إنك تكوني أمي.</h2><p>ربنا يخليكي ليا، ويقدرني أردّ ولو جزء صغير من حبك.</p><button class="button button-light" id="surpriseButton" type="button">اضغطي هنا لمفاجأة صغيرة ✨</button><div class="surprise-message" id="surpriseMessage" hidden>أحبك يا أمي… النهارده وبكرة وكل يوم. إنتِ نعمة عمري وأجمل هدية من ربنا. ♥</div></section>
 </main>
-<footer class="footer"><div class="tiny">♡</div><div>اتعملت بكل الحب لأغلى أم في الدنيا</div><div style="margin-top:8px">من قلبي لقلبك، دايمًا وأبدًا.</div></footer>
-<script>
-const reveal=document.getElementById('reveal');
-reveal.addEventListener('click',()=>{document.getElementById('extra').classList.add('show');reveal.textContent='بحبك يا أمي من كل قلبي 🤍';reveal.disabled=true;burst(18);});
-function burst(count){const symbols=['♡','🤍','💗','✿'];for(let i=0;i<count;i++){const el=document.createElement('span');el.className='float-heart';el.textContent=symbols[Math.floor(Math.random()*symbols.length)];el.style.left=(Math.random()*94+3)+'vw';el.style.fontSize=(18+Math.random()*23)+'px';el.style.animationDuration=(3+Math.random()*2)+'s';document.body.appendChild(el);setTimeout(()=>el.remove(),5200)}}
-document.getElementById('hearts').addEventListener('click',()=>burst(28));
-</script>
-</body>
-</html>
+<footer><div class="footer-heart">♥</div><p>اتعملت بكل الحب لأغلى أم في الدنيا</p><small>مهما كبرت، هفضل محتاج دعواتك وحنانك يا أمي.</small><a href="#home">ارجعي لبداية الرسالة ↑</a></footer>
+<div class="hearts-layer" id="heartsLayer" aria-hidden="true"></div>
+<script src="script.js"></script>
+</body></html>
