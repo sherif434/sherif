@@ -27,7 +27,7 @@
   surpriseButton?.addEventListener("click", () => {
     const isHidden = surpriseMessage.hidden;
     surpriseMessage.hidden = !isHidden;
-    surpriseButton.textContent = isHidden ? "اقفلي المفاجأة ♡" : "اضغطي هنا لمفاجأة صغيرة ✨";
+    surpriseButton.textContent = isHidden ? "اقفل المفاجأة ♡" : "اضغط هنا لمفاجأة صغيرة ✨";
     if (isHidden) sendHearts(28);
   });
 
