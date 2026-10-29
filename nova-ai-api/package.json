@@ -1,0 +1,12 @@
+{
+  "name": "nova-ai-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Serverless API for NOVA AI using hosted open-weight models",
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test" },
+  "dependencies": {
+    "@huggingface/inference": "^4.7.0"
+  }
+}

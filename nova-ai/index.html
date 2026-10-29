@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080b14">
+  <meta name="description" content="NOVA AI — مساعد ذكي للمحادثة والبرمجة والصوت وتوليد الصور.">
+  <title>NOVA AI — مساعدك الذكي</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="./" aria-label="NOVA AI الرئيسية"><span class="brand-orb">✦</span><span><b>NOVA</b><small>AI COMPANION</small></span></a>
+      <button class="new-chat" id="newChat">＋ محادثة جديدة</button>
+      <div class="side-label">مساحتك</div>
+      <button class="side-link active" data-view="chat"><span>◉</span> المحادثة</button>
+      <button class="side-link" data-view="images"><span>▧</span> استوديو الصور</button>
+      <button class="side-link" data-view="browser"><span>◎</span> مساحة المتصفح</button>
+      <button class="side-link" data-view="coding"><span>⌘</span> مساعد البرمجة</button>
+      <div class="sidebar-spacer"></div>
+      <div class="connection-card"><span class="status-dot"></span><div><b>محرك الذكاء الاصطناعي</b><small id="connectionLabel">لم يتم ضبط الخادم</small></div></div>
+      <button class="side-link" id="settingsButton"><span>⚙</span> الإعدادات والاتصال</button>
+      <div class="sidebar-foot">NOVA AI · إصدار تجريبي</div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menuButton" aria-label="فتح القائمة">☰</button>
+        <div class="breadcrumbs"><span>NOVA AI</span><span class="crumb-sep">/</span><b id="viewTitle">المحادثة</b></div>
+        <div class="top-actions"><span class="model-pill"><i></i><span id="modelLabel">نموذج مستضاف</span></span><button class="icon-button" id="topSettings" aria-label="الإعدادات">⚙</button></div>
+      </header>
+      <section class="view active" id="chatView">
+        <div class="welcome" id="welcome">
+          <div class="hero-orb"><div class="orb-core">✦</div><span class="orb-ring ring-one"></span><span class="orb-ring ring-two"></span></div>
+          <div class="eyebrow">مساحة تفكيرك وإبداعك</div>
+          <h1>أهلًا بك، أنا <span>NOVA</span></h1>
+          <p>مساعدك للبرمجة، التعلّم، الكتابة، وتطوير الأفكار.<br>قل لي ما الذي تريد إنجازه، ولنبدأ معًا.</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="أنشئ خطة واضحة لبناء موقع إلكتروني احترافي من الصفر"><span>✧</span><b>بناء موقع إلكتروني</b><small>خطة تنفيذ خطوة بخطوة</small></button>
+            <button class="suggestion" data-prompt="اشرح لي مفهوم الذكاء الاصطناعي التوليدي باللغة العربية مع أمثلة"><span>⌁</span><b>تعلّم شيئًا جديدًا</b><small>شرح واضح مع أمثلة</small></button>
+            <button class="suggestion" data-prompt="اكتب برنامج Python يقرأ ملف CSV ويتحقق من البيانات ويطبع تقريرًا"><span>⌘</span><b>اكتب كودًا</b><small>برمجة وتحليل أخطاء</small></button>
+            <button class="suggestion" data-prompt="اقترح فكرة إبداعية لصورة سينمائية مستقبلية مع وصف جاهز للتوليد"><span>▧</span><b>فكرة إبداعية</b><small>صورة من وصفك</small></button>
+          </div>
+        </div>
+        <div class="messages" id="messages" aria-live="polite"></div>
+        <div class="composer-wrap">
+          <div class="thinking-indicator" id="thinkingIndicator" hidden><span class="thinking-bars"><i></i><i></i><i></i></span><span id="thinkingText">NOVA تجهّز الرد…</span></div>
+          <form class="composer" id="chatForm">
+            <textarea id="promptInput" rows="1" placeholder="اكتب رسالتك إلى NOVA…" aria-label="رسالتك" maxlength="12000"></textarea>
+            <div class="composer-bottom"><div class="composer-tools"><button type="button" class="tool-button" id="voiceButton" title="إملاء صوتي">🎙 <span>تحدث</span></button><button type="button" class="tool-button" id="speakToggle" title="قراءة الردود صوتيًا">◖ <span>الصوت</span></button><span class="tool-hint">Enter للإرسال · Shift+Enter لسطر جديد</span></div><button class="send-button" id="sendButton" type="submit" aria-label="إرسال الرسالة">↑</button></div>
+          </form>
+          <p class="disclaimer">قد تخطئ النماذج؛ راجع المعلومات المهمة. لا تضع أسرارًا أو كلمات مرور في المحادثة.</p>
+        </div>
+      </section>
+      <section class="view tool-view" id="imagesView">
+        <div class="tool-heading"><div class="tool-icon">▧</div><div><div class="eyebrow">NOVA CREATIVE</div><h1>استوديو الصور</h1><p>حوّل وصفك إلى صورة باستخدام نموذج مستضاف، بعد إعداد اتصال API.</p></div></div>
+        <form id="imageForm" class="panel image-form"><label for="imagePrompt">صف الصورة التي تريدها</label><textarea id="imagePrompt" rows="4" maxlength="2000" placeholder="مثال: مدينة مستقبلية على ضفاف النيل وقت الغروب، أسلوب سينمائي…"></textarea><div class="form-row"><label class="select-label">النموذج<select id="imageModel"><option value="black-forest-labs/FLUX.1-schnell">FLUX.1-schnell</option><option value="stabilityai/stable-diffusion-xl-base-1.0">Stable Diffusion XL</option></select></label><button class="primary-button" type="submit" id="generateImage">✦ توليد الصورة</button></div><p class="muted small">قد يختلف توفر النماذج والحصص والتكلفة بحسب مزوّد الاستدلال.</p></form>
+        <div class="image-result panel" id="imageResult"><div class="empty-art">✧</div><p>ستظهر الصورة هنا بعد نجاح الاتصال بالخادم.</p></div>
+      </section>
+      <section class="view tool-view" id="browserView">
+        <div class="tool-heading"><div class="tool-icon">◎</div><div><div class="eyebrow">WEB WORKSPACE</div><h1>مساحة المتصفح</h1><p>افتح المواقع للقراءة والبحث. هذه مساحة تصفح مدمجة وليست تحكمًا كاملًا بمتصفح النظام.</p></div></div>
+        <form id="browserForm" class="browser-bar"><span>⌕</span><input id="browserUrl" type="url" placeholder="https://example.com" aria-label="رابط الموقع"><button class="primary-button" type="submit">فتح الموقع</button></form>
+        <div class="browser-note">بعض المواقع تمنع العرض داخل إطار مدمج عبر سياسات الأمان. عند حدوث ذلك استخدم زر «فتح في تبويب جديد».</div>
+        <div class="browser-actions"><a id="openExternal" class="secondary-button" href="https://example.com" target="_blank" rel="noopener noreferrer">فتح في تبويب جديد ↗</a></div>
+        <iframe id="browserFrame" title="عارض صفحات الويب" sandbox="allow-forms allow-scripts allow-same-origin allow-popups" referrerpolicy="no-referrer" src="about:blank"></iframe>
+      </section>
+      <section class="view tool-view" id="codingView">
+        <div class="tool-heading"><div class="tool-icon">⌘</div><div><div class="eyebrow">NOVA DEVELOPER</div><h1>مساعد البرمجة</h1><p>اكتب طلبك وسأطلب من النموذج المهيأ مساعدتك في بناء الكود وشرحه.</p></div></div>
+        <div class="panel coding-panel"><label for="codingPrompt">ما الذي تريد برمجته؟</label><textarea id="codingPrompt" rows="5" placeholder="مثال: اكتب API باستخدام Flask مع تحقق من المدخلات واختبارات…"></textarea><div class="form-row"><label class="check-label"><input type="checkbox" id="includeTests" checked> اطلب اختبارات وملاحظات أمنية</label><button class="primary-button" id="askCoding" type="button">⌘ اسأل NOVA</button></div></div>
+        <div class="code-output" id="codingOutput"></div>
+      </section>
+    </main>
+  </div>
+  <dialog id="settingsDialog" class="settings-dialog"><form method="dialog" class="dialog-head"><div><div class="eyebrow">CONFIGURATION</div><h2>إعدادات NOVA</h2></div><button class="icon-button" aria-label="إغلاق">×</button></form><div class="settings-content"><div class="notice"><b>مهم لحماية حسابك</b><p>ضع مفتاح Hugging Face في متغير البيئة HF_TOKEN على الخادم فقط. لا تضع المفتاح هنا أو داخل ملفات الواجهة.</p></div><label for="apiBase">رابط خادم NOVA API</label><input id="apiBase" type="url" placeholder="https://your-api-project.vercel.app"><label for="chatModel">معرّف نموذج المحادثة</label><input id="chatModel" type="text" value="openai/gpt-oss-120b:fastest" maxlength="180"><label class="check-label"><input id="saveEndpoint" type="checkbox" checked> حفظ رابط الخادم والنموذج على هذا الجهاز</label><button id="saveSettings" class="primary-button full-width" type="button">حفظ الإعدادات واختبار الاتصال</button><p id="settingsStatus" class="muted small" role="status"></p><p class="muted small">المحادثات تحفظ في هذا المتصفح فقط. لا يتم إرسالها إلى خادم حتى تضغط إرسال.</p></div></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
