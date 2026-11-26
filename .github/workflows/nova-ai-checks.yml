@@ -1,0 +1,36 @@
+name: NOVA AI checks
+
+on:
+  push:
+    branches: [main, nova-ai-build]
+    paths:
+      - 'nova-ai/**'
+      - 'nova-ai-api/**'
+      - '.github/workflows/nova-ai-checks.yml'
+  pull_request:
+    paths:
+      - 'nova-ai/**'
+      - 'nova-ai-api/**'
+      - '.github/workflows/nova-ai-checks.yml'
+
+jobs:
+  syntax-and-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Check frontend JavaScript syntax
+        run: node --check nova-ai/app.js
+      - name: Check API JavaScript syntax
+        run: |
+          node --check nova-ai-api/api/chat.js
+          node --check nova-ai-api/api/image.js
+          node --check nova-ai-api/api/health.js
+      - name: Install API dependencies
+        working-directory: nova-ai-api
+        run: npm install --ignore-scripts
+      - name: Run API validation tests
+        working-directory: nova-ai-api
+        run: npm test
